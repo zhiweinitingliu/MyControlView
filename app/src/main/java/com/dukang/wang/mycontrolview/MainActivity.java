@@ -1,11 +1,10 @@
 package com.dukang.wang.mycontrolview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,29 +15,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.alibaba.fastjson.JSONArray;
-import com.dukang.wang.mycontrolview.adapter.HomeAdapter;
-import com.dukang.wang.mycontrolview.bean.HomeListBean;
-import com.dukang.wang.mycontrolview.utils.FileUtils;
+import com.dukang.wang.mycontrolview.activity.ViewOneActivity;
 
-import java.util.List;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Context context;
     private Toolbar toolbar;
-    private RecyclerView recyclerView;
     private FloatingActionButton fab;
     private DrawerLayout drawer;
     private NavigationView navigationView;
-    private HomeAdapter homeAdapter;
-    private List<HomeListBean> homeListBeanList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         context = this;
         initView();
         initData();
@@ -47,9 +42,6 @@ public class MainActivity extends AppCompatActivity
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
-        recyclerView.setLayoutManager(layoutManager);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,13 +62,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initData() {
-        homeAdapter = new HomeAdapter(context);
-        String jsonData = FileUtils.readJsonFile(context, "homejson");
-        homeListBeanList = JSONArray.parseArray(jsonData, HomeListBean.class);
-        if (homeListBeanList != null && homeListBeanList.size() > 0) {
-            homeAdapter.setData(homeListBeanList);
-            recyclerView.setAdapter(homeAdapter);
-        }
+
     }
 
     @Override
@@ -129,5 +115,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @OnClick(R.id.view001)
+    public void clickView001() {
+        Intent intent = new Intent(context, ViewOneActivity.class);
+        startActivity(intent);
     }
 }

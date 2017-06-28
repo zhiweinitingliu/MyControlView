@@ -5,17 +5,33 @@
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.dukang.wang.mycontrolview.MainActivity"
-    tools:showIn="@layout/app_bar_main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:showIn="@layout/app_bar_main">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:title="首页" />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        app:title="首页" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/view001"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="自定义控件一" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
 </LinearLayout>
