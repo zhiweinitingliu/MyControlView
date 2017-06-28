@@ -1,6 +1,6 @@
 package com.dukang.wang.mycontrolview.activity;
 
-import android.os.Bundle;   
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
