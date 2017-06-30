@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.dukang.wang.mycontrolview.activity.AnimTwoActivity;
+import com.dukang.wang.mycontrolview.activity.ViewFirstActivity;
 import com.dukang.wang.mycontrolview.activity.ViewOneActivity;
 
 import butterknife.ButterKnife;
@@ -127,6 +128,12 @@ public class MainActivity extends AppCompatActivity
     @OnClick(R.id.anim002)
     public void clickAnim002() {
         Intent intent = new Intent(context, AnimTwoActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.view1)
+    public void clickView1() {
+        Intent intent = new Intent(context, ViewFirstActivity.class);
         startActivity(intent);
     }
 }

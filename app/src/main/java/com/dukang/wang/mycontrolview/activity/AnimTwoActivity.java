@@ -53,6 +53,7 @@ public class AnimTwoActivity extends AppCompatActivity {
                 int curValue = (int) animation.getAnimatedValue();
 
                 /**
+                 * 控件的上下左右坐标
                  * *@param l Left position, relative to parent
                  * @param t Top position, relative to parent
                  * @param r Right position, relative to parent

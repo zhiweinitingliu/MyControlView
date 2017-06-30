@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".activity.ViewOneActivity" />
         <activity android:name=".activity.AnimTwoActivity" />
+        <activity android:name=".activity.ViewFirstActivity" />
     </application>
 
 </manifest>
