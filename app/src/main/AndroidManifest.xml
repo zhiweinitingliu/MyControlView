@@ -21,6 +21,7 @@
         <activity android:name=".activity.ViewOneActivity" />
         <activity android:name=".activity.AnimTwoActivity" />
         <activity android:name=".activity.ViewFirstActivity" />
+        <activity android:name=".activity.ViewSecondActivity" />
     </application>
 
 </manifest>
